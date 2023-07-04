@@ -1,0 +1,7 @@
+.card {
+    margin: 20px;
+    background-color: lightgray;
+    position: relative;
+    width: 250px;
+    flex-wrap: wrap;
+}
