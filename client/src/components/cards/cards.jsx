@@ -3,7 +3,6 @@ import Card from '../card/card';
 import styles from "./cards.module.css"
 import { useNavigate } from 'react-router-dom';
 
-
 function Cards({allPokemons}) {
   const pokemonsList = allPokemons;
   const navigate = useNavigate()
@@ -17,12 +16,13 @@ function Cards({allPokemons}) {
 
   return (
     <div className={styles.pokemons}>
-      {pokemonsList?.map(pokemon => 
+      {pokemonsList?.slice(0,12).map(pokemon =>  // metodo array se utiliza para obtener una porcion del array 
         <Card pokemon = {pokemon} key={pokemon.id} onClick={() => handleClick(pokemon.id)} id={id} />
         )
         }
     </div>
   );
 }
+
 
 export default Cards;

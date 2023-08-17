@@ -34,10 +34,10 @@ const getAllPokemons = async (offset, createdByUser) => {
       }    
   })
       
-  const infoApi = (await axios.get(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=12`)).data
+  const infoApi = (await axios.get(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=60`)).data
   const pokemonsApi = infoApi.results;    
   const infoPokemons = await Promise.all(
-      pokemonsApi.map(async (pokemon) => {  
+      pokemonsApi.map(async (pokemon) => {     
           const url = await axios.get(pokemon.url);
           return pokemonFormater(url.data)
       })

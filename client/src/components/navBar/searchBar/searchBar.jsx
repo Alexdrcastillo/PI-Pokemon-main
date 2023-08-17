@@ -43,18 +43,18 @@ const SearchBar = ({ onShowCards }) => {
   };
 
   return (
-    <div style={{display: "flex", backgroundColor: "lightblue", height: "50px",marginTop: "-25px", alignItems:"center", paddingLeft: "500px"}}>
+    <div style={{display: "flex", backgroundColor: "wheat", height: "70px",marginTop: "0px", alignItems:"center", paddingLeft: "500px"}}>
       <form onSubmit={handleOnSubmit}>
-        <input style={{paddingLeft: "200px"}}
+        <input style={{paddingLeft: "150px", borderRadius: "20px", position: "relative", marginLeft: "120px"}}
           onKeyPress={handleKeyPress}
-          className="poke-searchbar"
+          className="poke-searchbar"  
           placeholder="Buscar..."
           value={name}
           onChange={handleChange}
         />
       </form>
-        <button type="submit" style={{height: "40px"}}>Buscar</button>
-      {showDetail && <Detail name={name} />}
+        <button type="submit" style={{height: "40px", marginLeft: "-30px", zIndex: 2}}>Buscar</button>
+      {showDetail && <Detail name={name} />}    
     </div>
   )
 }

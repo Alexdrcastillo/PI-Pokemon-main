@@ -15,12 +15,12 @@ const Creados = () => {
   }, []);
 
   return (
-    <div>
+    <div style={{textAlign: "center", alignItems: "center", justifyContent: "center"}}>
       <button onClick={() => navigate('/home')}>Ir a inicio</button>
       <div style={{alignContent: "center", alignItems: "center", textAlign: "center", display: "flex", flexWrap: "wrap"}}>
         {pokemons.map(pokemon => {
           return (
-            <div key={pokemon.id} style={{margin: "40px", height: "500px", width: "250px", backgroundColor: "lightGrey" }}>
+            <div key={pokemon.id} style={{margin: "40px", height: "500px", width: "250px", backgroundColor: "wheat", borderRadius: "20px" }}>
               <h1>name: {pokemon.name}</h1>
               <img src={pokemon.image} />
               <h1>hp: {pokemon.hp}</h1>

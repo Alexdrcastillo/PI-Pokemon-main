@@ -1,30 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import videoFondo from "../../images-videos/videoFondo.mp4"
-
+import fondo from "../../images-videos/detail.png"
 const Landing = () => {
   return (
-    <div style={{ position: 'relative', height: '100vh' }}>
-      <video
-        autoPlay
-        loop
-        muted
-        style={{
-          position: 'absolute',
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          zIndex: -1
-        }}
-      >
-        <source src={videoFondo} type="video/mp4" />
-      </video>
+    <div style={{ position: 'relavite', height: '100vh'}}>
+    
+    <img src={fondo} style={{width: "100%", height: "100%"}}/>  
+
       <div
         style={{
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          height: '100%'
+          marginTop: "-500px"
         }}
       >
         <button

@@ -5,6 +5,7 @@
     padding: 50px;
     flex-wrap: wrap;
        display: flex;
+     
 }
 
 .botones {
@@ -12,7 +13,6 @@
 }
 
 section {
-    background-color: purple;
     border-radius: 10px;
     padding: 10px;
     font-family: 'Press Start 2P', cursive;
@@ -20,25 +20,23 @@ section {
   }
   
   select {
-    background-color: #fff;
+    background-color:#D3D3D3;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     padding: 5px;
     font-size: 16px;
+    font-family: sans-serifs;
   }
  
 .container {
-    background-color: #8c004b;
-    width: 400px;
+    width: 500px;
     border-radius: 20px;
     margin-left: 600px;
     text-align: center;
-    height: 100px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  
 }  
 
 button {
     border-radius: 15px;
-    background-color: #572364;
     color: white;
 }

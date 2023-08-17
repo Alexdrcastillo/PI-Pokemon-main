@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from 'react-redux'; //sirven para conectarnos con redux porque vienen de react
-import styles from "./detail.module.css"
 import { Link } from 'react-router-dom';
 
 const Detail = ({ name }) => {
@@ -10,15 +9,17 @@ const Detail = ({ name }) => {
    
 
   return (
-    <div>
+    <div className="cards">
     
      <Link to="/home">Home</Link>
 
       {
       poke.map(pok => {
         return (
-            <div className={styles}>
+            <div style={{marginTop: "700px", marginLeft: "-200px", backgroundColor: "white", textAlign: "center", borderRadius: "20px"}}>
+                <h1>{pok.id}</h1>
                 <h1>{pok.name}</h1>
+                <h1>{pok.types}</h1>
                 <img  style={{height: "200px", width: "200px"}} src={pok.image} />
                 <h1>{pok.types}</h1>
             </div>

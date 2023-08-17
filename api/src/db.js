@@ -18,7 +18,7 @@ const modelDefiners = [];
 // Leemos todos los archivos de la carpeta Models, los requerimos y agregamos al arreglo modelDefiners
 fs.readdirSync(path.join(__dirname, '/models'))
    .filter(
-      (file) =>
+      (file) =>  
          file.indexOf('.') !== 0 &&
          file !== basename &&
          file.slice(-3) === '.js'

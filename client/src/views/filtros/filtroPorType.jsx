@@ -33,12 +33,13 @@ const FiltroPorTypes = ({ onShowCards }) => {
     dispatch(getPokemons(allPokemons))
   }
 
+  
 
   console.log(TypeValue)
 
   return (
     <div>
-        <div className={styles.botones}>
+        <div>
         <section>
   <select onChange={(event) => handleButtonClick(event.target.value)}>
     <option value="normal">normal</option>
@@ -71,19 +72,16 @@ const FiltroPorTypes = ({ onShowCards }) => {
 </section> 
         </div>
 
-      <button onClick={handleShowAll} style={{marginTop: "30px", height: "40px"}}>All pokemons</button>
 
 
-
-
-      <div className={styles.pokemons}>
+      <div className="cards" style={{display: "flex", flexWrap:  "wrap",marginTop: "130px",alignContent: "center", textAlign: "center", alignItems: "center", justifyContent: "center"}} onClick={() => handleClick(pokemon.id)}>
       {
         pokemon.map(pokemo => {
           return (
-            <div style={{backgroundColor: "lightgray", margin: "20px"}} onClick={() => handleClick(pokemo.id)}>
+            <div style={{backgroundColor: "#D3D3D3",height: "1000px" ,margin: "20px", height: "220px", width:"200px", textAlign: "center", borderRadius: "20px", fontFamily: "serif", cursor: "pointer", fontSize: "14px", marginLeft: "30px", marginTop: "-50px"}} onClick={() => handleClick(pokemo.id)}>
               <h1>{pokemo.name}</h1>
-              <img style={{width: "150px", height: "150px"}} src={pokemo.image}/>
-              <h1>{pokemo.types}</h1>
+              <img style={{width: "100px", height: "100px", paddingTop: "10px"}} src={pokemo.image}/>
+              <p style={{fontSize: "15px"}}>{pokemo.types}</p>
             </div>
           )
         })
