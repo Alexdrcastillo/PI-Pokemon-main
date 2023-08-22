@@ -1,21 +1,21 @@
 import React, {useEffect, useState} from 'react'
-import styles from './Home.module.css'
+import styles from "./Home.module.css"
 import Filters from '../../Components/Filters/Filters'
-import Cards from '../../Components/Cards/Cards'
 import { getAllPokemon } from '../../Redux/actions'
 import { useDispatch, useSelector } from "react-redux";
 import load from '../../images/poke_load.gif'
 import icon from '../../images/linkedin.png'
 import Paginado from '../../Components/Paginado/Paginado'
+import Cards from '../../Components/Cards/Cards';
 
 const Home = () => {
   const dispatch=useDispatch()
   const allPoke=useSelector((state)=>state)
   const pokeName=useSelector((state)=>state.currentPoke)
-  const [page, setPage]=useState(1)
+  const [page, setPage]=useState(1)  
   //cant de paginas a mostrar
   const [perPage] = useState(12);
-
+  
   // Calcula los índices del primer y último pokemon a mostrar
   const startIndex = (page - 1) * perPage;
   const endIndex = startIndex + perPage;

@@ -14,7 +14,7 @@
     align-items: center;
     text-decoration: none;
     font-family: 'Inconsolata', monospace;
-    text-align: center;
+    text-align: center; 
     
 }
 
@@ -36,7 +36,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-<<<<<<< HEAD
 }
 
 .types{
@@ -50,12 +49,4 @@
 .id{
     color: black;
     margin-left: 7px;
-=======
-    margin: auto;
-    display: flex;
-    margin-right: 15px;
-    padding: 15px;
-    flex-wrap: wrap;
-    position: absolute;
->>>>>>> 3e5228f91feb5895c8658adc70c1be34f715bc26
 }

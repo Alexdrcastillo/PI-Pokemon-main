@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@800&display=swap');
 .main{
     display: flex;
@@ -47,13 +46,4 @@
 
 .link:hover{
     color: white;
-=======
-.navbar {
-    margin-top: 20px;
-   width: 200px;
-   margin-left: 830px;
-   text-align: center;
-   align-items: center;
-   align-content: center;
->>>>>>> 3e5228f91feb5895c8658adc70c1be34f715bc26
 }
