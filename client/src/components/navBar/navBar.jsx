@@ -1,15 +1,23 @@
 import React from 'react'
-import styles from "./navBar.module.css"
-import SearchBar from './searchBar/searchBar'
+import styles from '../NavBar/NavBar.module.css'
+import { Link, useLocation } from 'react-router-dom'
+import SearchBar from '../SearchBar/SearchBar'
 
-const NavBar = () => {
+const NavBar = ({onSearch}) => {
+  const location=useLocation()
+
+  const isHomePage = location.pathname === "/home";
   return (
-    <div className={styles.navbar}>
-      <div>
-       <SearchBar />
+    <div className={styles.main}>
+      <div className={styles.cont}>
+        <Link to="/home" className={styles.link}>Home</Link>
+        {isHomePage && <div className={styles.search}>
+          <SearchBar onSearch={onSearch}/>
+        </div>}
+        <Link to="/form" className={styles.form}>Create Pokemon</Link>
       </div>
     </div>
   )
 }
 
-export default NavBar;
+export default NavBar

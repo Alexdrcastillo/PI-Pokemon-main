@@ -1,12 +1,12 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk'; //thunk es un middleware que nos ayuda a trabajar con asincronías. por sí solo redux NO sabe trabajar con asincronías
-import rootReducer from './reducer';
+import { compose, createStore, applyMiddleware } from "redux";
+import thunkMiddleware from "redux-thunk"
+import rootReducer from "./reducer";
 
-const composeEnhancer = window.REDUX_DEVTOOLS_EXTENSION_COMPOSE || compose;//sirve para conectar con la extensión de chrome, redux devtools
 
+const composeEnhancer = window.REDUX_DEVTOOLS_EXTENSION_COMPOSE || compose;
 const store = createStore(
-    rootReducer,
-    composeEnhancer(applyMiddleware(thunk))//sirve para hacer peticiones al server
+  rootReducer,
+  composeEnhancer(applyMiddleware(thunkMiddleware))
 );
 
 export default store;

@@ -1,77 +1,69 @@
-import { useEffect } from 'react'; //
-import { useDispatch, useSelector } from 'react-redux'; //sirven para conectarnos con redux porque vienen de react
-// import axios from 'axios';
-import {getPokemons} from '../../redux/actions';
-import Cards from '../../components/cards/cards';
-import NavBar from '../../components/navBar/navBar';
-import { useState } from 'react'
-import SearchBar from '../../components/navBar/searchBar/searchBar'
-import FiltroPorAtaque from '../filtros/FiltroPorAtaque';
-import FiltroPorTypes from '../filtros/filtroPorType';
-import Create from '../create/create';
-import { Link, useNavigate } from 'react-router-dom';
+import React, {useEffect, useState} from 'react'
+import styles from './Home.module.css'
+import Filters from '../../Components/Filters/Filters'
+import Cards from '../../Components/Cards/Cards'
+import { getAllPokemon } from '../../Redux/actions'
+import { useDispatch, useSelector } from "react-redux";
+import load from '../../images/poke_load.gif'
+import icon from '../../images/linkedin.png'
+import Paginado from '../../Components/Paginado/Paginado'
 
+const Home = () => {
+  const dispatch=useDispatch()
+  const allPoke=useSelector((state)=>state)
+  const pokeName=useSelector((state)=>state.currentPoke)
+  const [page, setPage]=useState(1)
+  //cant de paginas a mostrar
+  const [perPage] = useState(12);
 
+  // Calcula los índices del primer y último pokemon a mostrar
+  const startIndex = (page - 1) * perPage;
+  const endIndex = startIndex + perPage;
 
-function Home() {
+  // Calcula el número máximo de paginas
+  const max = Math.ceil(allPoke.pokemons?.length / perPage);
 
+  // Obtiene el array de pokemons a mostrar en la pagina actual
+  const pokemonsToShow = allPoke.pokemons?.slice(startIndex, endIndex);
 
-  const navigate = useNavigate();
-  const [showCards, setShowCards] = useState(true)
-  const [currentPage, setCurrentPage] = useState(0); //estado local para ver en qué pagina estoy actualmente
-  const pokemonsPerPage = 12; //esto muestra el inicio de los pokemons
-
-
-  const dispatch = useDispatch(); //forma que le comunico a la store
-  const allPokemons = useSelector((state) => state.pokemons);  //estamos creando un state y con useSelector se indica a qué estado(del reducer) está suscrito el componente 
-  const pokeName = useSelector((state) => state)
-  console.log(allPokemons)
-
-
-  useEffect(() => { //en este caso se trae a los pokemons cuando la página se monta
-    dispatch(getPokemons((currentPage) * pokemonsPerPage)) 
-  }, [dispatch,currentPage]) //el array de dependencias es para ver en qué momento quiero que se ejecute la action, en este caso es cuando se monta 
-
-  const handleShowCards = (show) => {
-    setShowCards(show)
-  }
-
-
-  const nextPage = () => {
-    setCurrentPage(currentPage + 1);
-  };
-  const previousPage = () => {
-    if(currentPage > 0) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
-
-
-  const handleMyPokemons = () => {
-    navigate('/my-pokemons');
-  };
+  useEffect(() => {
+    dispatch(getAllPokemon());
+  }, [dispatch]);
+console.log("ESTO ES POKENAME",pokeName)
 
   return (
-    <div>
+    <div className={styles.main}>
+        <div className={styles.title}>
+         </div>
+        <div className={styles.filter}>
+            <Filters/>
+        </div>
+        <main className={styles.container}>
+          <section className={styles.pokemonContainer}>
+            {/* Si el estado de la aplicación indica una búsqueda específica de un Pokémon, se mostrará solo ese Pokemon; si el estado indica que se debe mostrar una lista de Pokemones, se mostrará esa lista; y si la aplicación aún no ha cargado los datos, se mostrará una imagen de carga. */}
+          {pokemonsToShow?.length ? (
+            pokemonsToShow?.map((pokemon, index) => (
+              <Cards
+                key={index}
+                name={pokemon.name}
+                image={pokemon.image}
+                id={pokemon.id}
+                types={pokemon.types}
+              />
+            ))
+          ) : (
+            <img className={styles.load} src={load} alt="something" />
+          )}
+          </section>
+        </main>
 
-     <div style={{ position: "fixed", bottom: "0", width: "100%", textAlign: "center" }}>
-          <button onClick={() => previousPage()}>PREVIOUS</button>
-         <button onClick={() => nextPage()}>NEXT</button>
-     </div>
-          
-         <button onClick={handleMyPokemons}>Creados por mi</button>
- 
-         <Link to="/create">Crear Pokemon</Link>
+      <div className={styles.pag}>
+        <Paginado page={page} setPage={setPage} max={max} />
+      </div>
 
-          <SearchBar onShowCards={handleShowCards} />
-          <FiltroPorAtaque onShowCards={handleShowCards}/> 
-          <FiltroPorTypes onShowCards={handleShowCards} />
-      {showCards && (
-        <Cards allPokemons = {allPokemons}/>
-      )}
-
+     
     </div>
-  );
+  )
 }
 
-export default Home;
+export default Home
