@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import axios from 'axios'
 export const GET_ALL_POKE="GET_ALL_POKE"
 export const GET_POKEMON="GET_POKEMON"
@@ -8,6 +9,10 @@ export const GET_TYPES="GET_TYPES"
 export const FILTER_BY_TYPE = "FILTER_BY_TYPE";
 export const ORDER="ORDER"
 export const DAMAGE="DAMAGE"
+=======
+import axios from 'axios';
+import { GET_POKEMONS, GET_NAME, GET_POKEMON, GET_TYPES, FILTERED_ORDER } from './action-types';
+>>>>>>> 3e5228f91feb5895c8658adc70c1be34f715bc26
 
 export const getAllPokemon = () => {
     return async function (dispatch) {
@@ -38,6 +43,7 @@ export const getAllPokemon = () => {
     }
   }
 
+<<<<<<< HEAD
   //setea el detail del pokemon
   export const clearPokemon = () => ({
     type: "CLEAR_POKEMON",
@@ -103,3 +109,23 @@ export const getAllPokemon = () => {
       payload:damage
     }
   }
+=======
+  
+export const getTypes = () => {
+  return async function (dispatch) {
+  const pokemonTypes = await axios.get(`http://localhost:3001/types`);
+  const types = pokemonTypes.data
+  dispatch({ 
+      type: GET_TYPES, 
+      payload: types 
+  });
+  }
+}
+
+export const filterOrder = (order) => {
+  return {
+      type: FILTERED_ORDER, 
+      payload: order
+  }
+}
+>>>>>>> 3e5228f91feb5895c8658adc70c1be34f715bc26

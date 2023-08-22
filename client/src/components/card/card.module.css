@@ -1,0 +1,9 @@
+.card {
+    margin: 20px;
+    background-color: #D3D3D3;
+    position: relative;
+    font-family: sans-serif;
+    width: 200px;
+    flex-wrap: wrap;
+    border-radius: 20px;
+}

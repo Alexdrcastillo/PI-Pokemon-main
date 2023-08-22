@@ -1,0 +1,42 @@
+.pokemons {
+    text-align: center;
+    align-items: center;
+   margin-top: 20px;
+    padding: 50px;
+    flex-wrap: wrap;
+       display: flex;
+     
+}
+
+.botones {
+    margin-top: -100px;
+}
+
+section {
+    border-radius: 10px;
+    padding: 10px;
+    font-family: 'Press Start 2P', cursive;
+    width: 150px;
+  }
+  
+  select {
+    background-color:#D3D3D3;
+    border: none;
+    border-radius: 20px;
+    padding: 5px;
+    font-size: 16px;
+    font-family: sans-serifs;
+  }
+ 
+.container {
+    width: 500px;
+    border-radius: 20px;
+    margin-left: 600px;
+    text-align: center;
+  
+}  
+
+button {
+    border-radius: 15px;
+    color: white;
+}
