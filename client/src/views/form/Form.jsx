@@ -180,7 +180,7 @@ const handleTypeChange = (e) => {
   setError(valor);
 };
 
- const handleSubmit = (e) => {
+ const handleSubmit = (e) => {         
   //cuando se envía el form
   e.preventDefault();
   //si hay errores, no se manda
